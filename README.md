@@ -1,2 +1,2 @@
 # MatLab
-This is a collection of my MatLab codes related to scientific computing and probability.
+This is a sample of my MatLab code related to scientific computing and probability. For the first update I'm defining a couple functions for sampling random numbers from distributions.
