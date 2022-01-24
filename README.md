@@ -1,2 +1,2 @@
 # MatLab
-Collection of my MatLab codes
+This is a collection of my MatLab codes related to scientific computing and probability.
