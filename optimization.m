@@ -1,3 +1,5 @@
+%%  Copyright Erik Dali, GPL3 Licesnse
+
 %%  2.1 Synthetic Data
 clear all; format compact; format long e;
 
