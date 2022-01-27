@@ -1,3 +1,6 @@
+%%  Copyright Erik Dali, GPL-3.0 License
+%%  https://github.com/erik-dali
+
 %%  1.2 Simple sampler
 clear all; format compact; format long e;
 
