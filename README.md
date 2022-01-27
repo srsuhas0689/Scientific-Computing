@@ -76,7 +76,7 @@ If we set the initial guess `c = (1, 1, 1, 1)` then the method diverges and afte
 * Gauss-Newton method is derived from the Newton method for optimization and it can solve non-linear least squared problems. However, Gauss-Newton method has the advantage of not needing the second derivative which can be difficult to compute. (Source Wikipedia https://en.wikipedia.org/wiki/Gauss-Newton_algorithm)
 
 ## [Levenberg-Marquardt Algorithm](https://github.com/erik-dali/Scientific-Computing/blob/bd333c7f5431c315695baf0e9f62da17661fea85/optimization.m)
-We set the initial guess to be `c = (1,1,1,1)` for which the Guass-Netwon method fails to converge. Experimentally, if we set `λ1 = 5.11e−3` then after 20 iterations the results converge to full machine accuracy.
+We set the initial guess to `c = (1,1,1,1)` the Guass-Netwon method fails to converge. Experimentally, if we set `λ1 = 5.11e−3` then after 20 iterations the results converge to full machine accuracy.
 
 <p align="center">
 <img width="664" alt="Levenberg-Marquardt Algorithm" src="https://user-images.githubusercontent.com/65843134/151390703-bb0388d9-497f-4b3e-b9fe-88b72731293d.png">
