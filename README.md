@@ -46,9 +46,41 @@ Using the new sample function derived above, 100 bins, and N = 10^5 samples on t
 </p>
 
 # 2. Nonlinear Least-Squares Fitting
-Here I fit randomly generated data to a nonlinear function with parameters `y = f (x; c)`. The least-squares fit is the objective function to be minimized. This problem can thought of as an overdetermined system of nonlinear equations for the parameter `c`.
+Here I fit randomly generated data to a nonlinear function with parameters `y = f (x; <b>`c`</b>)`. The least-squares fit is the objective function to be minimized. Although this problem is an optimization problem, it can be thought of as an overdetermined system of nonlinear equations for the parameter <b>`c`</b>. 
+<p align="center">
+<img width="287" alt="function" src="https://user-images.githubusercontent.com/65843134/151388259-8f87d014-d3c2-4586-a060-19c4c6f33b13.png">
+</p>
+where `f` is an exponentially-damped sinusoidal curve with the unknown parameter <b>`c`</b>. Here <b>`c`</b> is a vector of four scalars:
+* Amplitude `c_1`
+* Decay `c_2`
+* Period `c_3`
+* Phase `c_4`
+
+## Synthetic Data
+I generate some synthetic data of 100 points randomly and uniformly distributed in `0 <= x <= 10`. Then I plot the true function and the peturbed data where `c = (1, 1/2, 2, 0)`.
+
 <p align="center">
   <img width="659" alt="Nonlinear Fitting" src="https://user-images.githubusercontent.com/65843134/151286963-fc74cf2e-dba2-42b7-aede-0ef108ef6da3.png">
 </p>
 
-the rest is coming soon!
+## Gauss-Newton Method
+I implement the Gauss-Newton method with the initial guess of `c0 = (0.95, 0.45, 1.95, 0.05)` and solve the normal equations:
+<p align="center">
+<img width="490" alt="GN" src="https://user-images.githubusercontent.com/65843134/151390198-4aefa0ef-9f94-4fbe-91e5-36e9c21497f1.png">
+</p>
+and set the stopping criteria to be 20 iterations. We find the partial derivatives of `f` by hand and compute the Jacobian matrix for each iteration. After 5 iterations the estimates converge to the actual results with full machine accuracy.
+
+If we set the initial guess `c = (1, 1, 1, 1)` then the method diverges and after 8 iterations the program fails because the matrix is no longer positive-definite. Trying other initial guesses we find that the method diverges frequently when the initial guess are not close.
+* Theoretically, convergence is only quadratic when our initial guess are close enough to the actual values.
+* If we set ε = 0 then we get full machine accuracy after 6 iterations.
+* Gauss-Newton method is derived from the Newton method for optimization and it can solve non-linear least squared problems. However, Gauss-Newton method has the advantage of not needing the second derivative which can be difficult to compute. (Source Wikipedia https://en.wikipedia.org/wiki/Gauss– Newton_algorithm)
+
+## Levenberg-Marquardt Algorithm
+We set the initial guess to be `c = (1,1,1,1)` for which the Guass-Netwon method fails to converge. Experimentally, if we set `λ1 = 5.11e−3` then after 20 iterations the results converge to full machine accuracy.
+
+<p align="center">
+<img width="664" alt="Levenberg-Marquardt Algorithm" src="https://user-images.githubusercontent.com/65843134/151390703-bb0388d9-497f-4b3e-b9fe-88b72731293d.png">
+</p>
+
+For larger values of λ1 convergence becomes faster, however after a certain threshold, increasing λ1 does not improve the speed of convergence. It is more helpful to start with a better intial guess than to rely on increasing the magnitude of λ1.
+
