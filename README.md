@@ -45,7 +45,7 @@ Using the new sample function derived above, 100 bins, and N = 10^5 samples on t
   <img width="822" alt="Histogram of sum of two i.i.d. random variables" src="https://user-images.githubusercontent.com/65843134/150833810-90d24c6a-2918-4875-8f78-2343466ac295.png">
 </p>
 
-# 2. [Nonlinear Least-Squares Fitting](https://github.com/erik-dali/Scientific-Computing/blob/bd333c7f5431c315695baf0e9f62da17661fea85/optimization.m)
+# 2. Nonlinear Least-Squares Fitting
 Here I fit randomly generated data to a nonlinear function with parameters `y = f (x; <b>`c`</b>)`. The least-squares fit is the objective function to be minimized. Although this problem is an optimization problem, it can be thought of as an overdetermined system of nonlinear equations for the parameter <b>`c`</b>. 
 <p align="center">
 <img width="287" alt="function" src="https://user-images.githubusercontent.com/65843134/151388259-8f87d014-d3c2-4586-a060-19c4c6f33b13.png">
