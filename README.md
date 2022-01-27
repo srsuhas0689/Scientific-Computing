@@ -73,7 +73,7 @@ and set the stopping criteria to be 20 iterations. We find the partial derivativ
 If we set the initial guess `c = (1, 1, 1, 1)` then the method diverges and after 8 iterations the program fails because the matrix is no longer positive-definite. Trying other initial guesses we find that the method diverges frequently when the initial guess are not close.
 * Theoretically, convergence is only quadratic when our initial guess are close enough to the actual values.
 * If we set ε = 0 then we get full machine accuracy after 6 iterations.
-* Gauss-Newton method is derived from the Newton method for optimization and it can solve non-linear least squared problems. However, Gauss-Newton method has the advantage of not needing the second derivative which can be difficult to compute. (Source Wikipedia https://en.wikipedia.org/wiki/Gauss– Newton_algorithm)
+* Gauss-Newton method is derived from the Newton method for optimization and it can solve non-linear least squared problems. However, Gauss-Newton method has the advantage of not needing the second derivative which can be difficult to compute. (Source Wikipedia https://en.wikipedia.org/wiki/Gauss-Newton_algorithm)
 
 ## [Levenberg-Marquardt Algorithm](https://github.com/erik-dali/Scientific-Computing/blob/bd333c7f5431c315695baf0e9f62da17661fea85/optimization.m)
 We set the initial guess to be `c = (1,1,1,1)` for which the Guass-Netwon method fails to converge. Experimentally, if we set `λ1 = 5.11e−3` then after 20 iterations the results converge to full machine accuracy.
