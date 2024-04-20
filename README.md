@@ -4,6 +4,32 @@ This is a collection of my MatLab codes related to scientific computing and prob
 # 1. Sampling Probability Distributions in MatLab
 For the first part I'm defining a couple functions for to draw random samples from probability distributions and plot their histograms. The main function is called `hst` and the function that draws the samples is `sampler`.
 
+
+Sampling probability distributions is a fundamental task in many scientific computing applications. MATLAB provides several functions to sample from various probability distributions. Here's a basic example of how you can sample from a normal distribution using MATLAB:
+
+//
+% Parameters of the normal distribution
+mu = 0;         % Mean
+sigma = 1;      % Standard deviation
+num_samples = 1000; % Number of samples to generate
+
+% Generate samples from the normal distribution
+samples = mu + sigma * randn(num_samples, 1);
+
+% Plot a histogram of the samples
+histogram(samples, 'Normalization', 'pdf');
+hold on;
+
+% Plot the theoretical normal distribution
+x = linspace(-5, 5, 1000);
+y = 1/(sigma * sqrt(2*pi)) * exp(-(x-mu).^2 / (2*sigma^2));
+plot(x, y, 'r', 'LineWidth', 2);
+xlabel('x');
+ylabel('Probability Density');
+title('Sampling from Normal Distribution');
+legend('Samples', 'Theoretical Distribution');
+hold off;
+//
 ## [Histogram function `hst`](https://github.com/erik-dali/Scientific-Computing/blob/d1930d14214fdd64134b8b4d33cd3f77a295084c/histogram-function.m)
 I have defined a function `hst` which creates a histogram for a given probability distribution by generating a large number of i.i.d. samples using a sampler function called `sampler`. The histogram function returns a set of parameters that we are interested in. It can also plot the confidence intervals for our bins along with the pdf itself. The function is as follows:
 ```
